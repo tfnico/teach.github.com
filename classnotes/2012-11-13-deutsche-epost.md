@@ -12,9 +12,7 @@ eventdate: 2012-11-13
 ## Instructors
 * Matthew McCullough ([Twitter](http://twitter.com/matthewmccull), [GitHub](https://github.com/matthewmccullough))
 * Kevin Sawicki ([Twitter](http://twitter.com/kevinsawicki), [GitHub](https://github.com/kevinsawicki))
-* Thomas Ferris Nicolaisen ([Twitter](http://twitter.com/tfnico), [GitHub](https://github.com/tfnico))
-    * [Office Chat Server](http://flurfunk.github.com)
-    * [Thomas' GitHub Site](http://tfnico.github.com)
+* Thomas Ferris Nicolaisen ([Twitter](http://twitter.com/tfnico), [GitHub](https://github.com/tfnico), [homepage](http://www.tfnico.com))
 
 ## Resources
 
@@ -23,7 +21,6 @@ eventdate: 2012-11-13
 * [Ask questions of the GitHub Training team](https://github.com/githubtraining/feedback)
 * [GitSlave - An Alternative to Git Submodules](http://gitslave.sourceforge.net)
 * [Free Online Classes from GitHub Training](http://training.github.com/web/free-classes/)
-* [Git Command Frequency of Use](https://coderwall.com/p/-o1nda)
 
 
 ## Git Basics
@@ -34,13 +31,14 @@ eventdate: 2012-11-13
 
 ## IDEs, Platforms, Tools
 
-* [Excellent Git support in Eclipse with JGit (Library) and eGit (UI)](http://eclipse.github.com)
+* [Excellent Git support in Eclipse with JGit (Library) and EGit (UI)](http://eclipse.github.com)
 * IntelliJ also has excellent Git support.
-* Emacs Git mode.
+* Emacs Git mode (the most popular is [magit](http://philjackson.github.com/magit/)).
+* There's [fugitive.vim](https://github.com/tpope/vim-fugitive) for Vim, which is included in [Vim-Janus](https://github.com/carlhuda/janus)
 
 ## Git GUIs
 * [Catalog of Git GUIs](http://pinboard.in/u:matthew.mccullough/t:git+gui)
-* eGit for Eclipse
+* EGit for Eclipse
 * Smart Git for cross-platform consistency
 * GitX on Mac
 
@@ -53,14 +51,23 @@ eventdate: 2012-11-13
 * `git log --date-order`
 * `git log --topo-order`
 * `git log --graph`
-* `
+
+Handy `git logtree` alias:
+* `git config alias.logtree "log --graph --oneline --decorate --all"`
+
+(Awesome command line tool for browsing log: [Tig](http://jonas.nitro.dk/tig/))
 
 ## Navigating to the Tree of a Commit
 * `git cat-file -p HEAD^{tree}`
 
 ## Rebasing
-* Auto rebase
-    * git config --global branch.autosetuprebase true
+
+Configure branch "master" to be rebased when pulling:
+* `git config branch.master.rebase true`
+
+Configure automatic rebasing on remote branches (in effect configures rebase=true on any remote branches
+that are tracked from now on):
+* `git config --global branch.autosetuprebase remote`
 
 ## GitHub
 * Primary place for open source projects to host code, site
@@ -68,7 +75,7 @@ eventdate: 2012-11-13
 
 ## Gerrit
 * Tool for code review from Google
-* Eclipse foundation uses Gerrit for eGit, JGit
+* Eclipse foundation uses Gerrit for EGit, JGit
 * Comparable to pull request on GitHub
 
 ## Pull Request
@@ -126,7 +133,7 @@ eventdate: 2012-11-13
 * Repo tool from Android
 * Release cycle loosely linked
 * Per OS for 
-* git-slave
+* [gitslave](http://gitslave.sourceforge.net) (limited Windows support)
 * Large binaries
     * git-annex
     * git-media
@@ -153,11 +160,9 @@ eventdate: 2012-11-13
 * `git stash apply`
 * `git stash pop`
 
+## Fun: Find most frequently use Git command
 
-## Find most frequently use Git command
-
-    history|grep git| awk '{CMD[$3]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n10
-
+* [Git Command Frequency of Use](https://coderwall.com/p/-o1nda)
 
 ## Command Line History
 
